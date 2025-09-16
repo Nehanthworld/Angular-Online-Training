@@ -1,0 +1,13 @@
+.student-card{
+     border: 1px dashed black;
+}
+
+.failed-student {
+   
+    background: rgb(255, 181, 84);
+}
+
+.qualified-student {
+    
+    background: rgb(81, 239, 139);
+}

@@ -1,0 +1,28 @@
+<!-- ng class with dynamic classes using conditions -->
+<!-- @for(student of students; track student.id){
+<div [ngClass]="{'student-card': true, 'failed-student': student.marks < 40, 'qualified-student': student.marks >= 40 }">
+    <h2>Name: {{student.name}}</h2>
+    <h4>id: {{student.id}}</h4>
+    <h4>marks: {{student.marks}}</h4>
+</div>
+} -->
+<!-- ng style with styles using object literals and conditional styles -->
+<!-- @for(student of students; track student.id){
+<div [ngStyle]="{'background-color': student.marks < 40 ? 'red' : 'lightgreen', 'margin': '10px', 'padding': '10px', 'border-radius': '5px'}">
+    <h2>Name: {{student.name}}</h2>
+    <h4>id: {{student.id}}</h4>
+    <h4>marks: {{student.marks}}</h4>
+</div>
+} -->
+<!-- ng style with dynamic styles from component -->
+<!-- @for(student of students; track student.id){
+<div [ngStyle]="getStudentStyle(student.marks)">
+    <h2>Name: {{student.name}}</h2>
+    <h4>id: {{student.id}}</h4>
+    <h4>marks: {{student.marks}}</h4>
+</div>
+} -->
+
+<!-- ng model -->
+
+<input type="text" [(ngModel)]="name" placeholder="Enter student name">
