@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-student',
@@ -7,12 +7,23 @@ import { Component } from '@angular/core';
   styleUrl: './student.css'
 })
 export class Student {
-  students = [{ id: 1, name: 'John', marks: 85 }, { id: 2, name: 'Jane', marks: 35 },
-  { id: 3, name: 'Jim', marks: 78 }, { id: 4, name: 'Jill', marks: 88 }];
+
+  constructor() {
+    setTimeout(() => {
+      this.handleButtonClick();
+    }, 5000);
+  }
+  @Input({ alias: 'student-name', required: true })
+  name!: string;
+  @Input() studentData!: any;
+
+  @Output() studentEvent = new EventEmitter();
 
 
-  name = 'Angular';
-
+  handleButtonClick() {
+    let student = this.studentData?.find((s: any) => s.name === 'John');
+    this.studentEvent.emit(student);
+  }
   getStudentStyle(marks: number) {
     //DB logic
     return {
