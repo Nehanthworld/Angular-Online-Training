@@ -6,11 +6,15 @@ import { App } from './app';
 import { Student } from './components/student/student';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonGrid } from './components/shared/common-grid/common-grid';
+import { Product } from './components/product/product';
 
 @NgModule({
   declarations: [
     App,
-    Student
+    Student,
+    CommonGrid,
+    Product
   ],
   imports: [
     BrowserModule,
