@@ -10,11 +10,11 @@ import { StudentModel } from './student.model';
 })
 export class Student {
 
-  studentTableColums: GridColumn[] = [
-    { dataKey: 'id', header: 'ID' },
+  studentTableColums: GridColumn = {
+    dataColumns: [{ dataKey: 'id', header: 'ID' },
     { dataKey: 'name', header: 'Name' },
-    { dataKey: 'marks', header: 'Marks' },
-  ];
+    { dataKey: 'marks', header: 'Marks' }]
+  }
 
   studentTableData: StudentModel[] = [
     { id: 1, name: 'John', marks: 85 },
@@ -33,7 +33,7 @@ export class Student {
   handleButtonClick() {
     let student = this.studentData?.find((s: any) => s.name === 'John');
     //Write your own logic
-    let myCustomObjet ={
+    let myCustomObjet = {
       studentData: student,
       message: 'Data from child component',
       sampleNumber: 123

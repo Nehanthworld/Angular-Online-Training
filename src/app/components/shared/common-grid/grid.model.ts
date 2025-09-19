@@ -1,4 +1,16 @@
 export interface GridColumn {
-  dataKey: string;
-  header: string;
+    dataColumns: DataColumn[];
+    actions?: ActionColumn[];
+}
+
+interface DataColumn {
+    dataKey: string;
+    header: string;
+}
+
+interface ActionColumn {
+    title: string;
+    cssClass: string;
+    icon: string;
+    actionName: string;
 }

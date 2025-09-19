@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { GridColumn } from './grid.model';
 
 @Component({
@@ -9,5 +9,11 @@ import { GridColumn } from './grid.model';
 })
 export class CommonGrid {
   @Input() data!: any[]
-  @Input() columns!: GridColumn[];
+  @Input() columns!: GridColumn;
+
+  @Output() actionOutput = new EventEmitter();
+
+  rowAction(actionName: any, rowData: any) {
+    this.actionOutput.emit({ actionName: actionName, rowData: rowData });
+  }
 }

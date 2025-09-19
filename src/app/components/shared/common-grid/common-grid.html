@@ -1,16 +1,29 @@
 <table class="table table-bordered">
     <thead>
         <tr>
-            @for(column of columns; track column.header){
+            @for(column of columns.dataColumns; track column.header){
             <th>{{column.header}}</th>
+            }
+            @if(columns.actions != null && columns.actions.length > 0){
+            <th>Actions</th>
             }
         </tr>
     </thead>
     <tbody>
         @for(dataItem of data; track dataItem.id){
         <tr>
-            @for(column of columns; track column.header){
+            @for(column of columns.dataColumns; track column.header){
             <td>{{dataItem[column.dataKey]}}</td>
+            }
+            @if(columns.actions != null && columns.actions.length > 0){
+            <td>
+                @for(action of columns.actions; track action){
+                <button [class]="action.cssClass"
+                (click)="rowAction(action.actionName, dataItem)">{{action.title}}</button>
+                }
+                <!-- <button class="btn btn-primary">Edit</button>
+                <button class="btn btn-danger">Delete</button> -->
+            </td>
             }
         </tr>
         }
