@@ -1,0 +1,25 @@
+<p>eventsdemo works!</p>
+<button [ngClass]="['btn', cssClass]"
+(click)="handleButtonClick()"
+(mouseover)="handleButtonMouseHover()"
+(mouseout)="handleButtonMouseOut()"
+(dblclick)="handleButtonDoubleCLick()"
+(mousedown)="this.actionName = 'button mouse down'"
+(mouseup)="this.actionName = 'button mouse up'"
+(mouseenter)="this.actionName = 'button mouse enter'"
+(mousemove)="this.actionName = 'button mouse move'"
+(mouseleave)="this.actionName = 'button mouse leave'"
+>Click Me</button>
+
+<h1>{{actionName}}</h1>
+
+<input type="text" 
+(keyup)="text = 'Key up'" 
+(keydown)="text = 'Key down'" 
+(focus)="text = 'Input Focused'"
+
+(change)="text = 'value changed to ' + $event.target.value" 
+
+placeholder="Type something and press enter"/>
+
+<h1>{{text}}</h1>

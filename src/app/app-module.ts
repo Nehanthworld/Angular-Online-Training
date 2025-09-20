@@ -8,13 +8,15 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonGrid } from './components/shared/common-grid/common-grid';
 import { Product } from './components/product/product';
+import { Eventsdemo } from './components/eventsdemo/eventsdemo';
 
 @NgModule({
   declarations: [
     App,
     Student,
     CommonGrid,
-    Product
+    Product,
+    Eventsdemo
   ],
   imports: [
     BrowserModule,
