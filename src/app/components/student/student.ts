@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
 import { GridColumn } from '../shared/common-grid/grid.model';
 import { StudentModel } from './student.model';
 
@@ -28,6 +28,23 @@ export class Student {
   @Input() studentData!: any;
 
   @Output() studentOutput = new EventEmitter();
+
+
+
+
+  count: number = 0;
+  // @HostListener('document:click', ['$event'])
+  // handleCount(event: any) {
+  //   console.log(event);
+  //   this.count++;
+  // }
+  // @HostListener('window:click', ['$event'])
+  // handleCount1(event: any) {
+  //   this.count++;
+  // }
+
+
+
 
 
   handleButtonClick() {
