@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { GridColumn } from './grid.model';
+import { IGridColumn } from './grid.model';
 
 @Component({
   selector: 'app-common-grid',
@@ -9,7 +9,7 @@ import { GridColumn } from './grid.model';
 })
 export class CommonGrid {
   @Input() data!: any[]
-  @Input() columns!: GridColumn;
+  @Input() columns!: IGridColumn;
 
   @Output() actionOutput = new EventEmitter();
 

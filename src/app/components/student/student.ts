@@ -1,5 +1,5 @@
 import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
-import { GridColumn } from '../shared/common-grid/grid.model';
+import { IGridColumn } from '../shared/common-grid/grid.model';
 import { StudentModel } from './student.model';
 
 @Component({
@@ -10,7 +10,7 @@ import { StudentModel } from './student.model';
 })
 export class Student {
 
-  studentTableColums: GridColumn = {
+  studentTableColums: IGridColumn = {
     dataColumns: [{ dataKey: 'id', header: 'ID' },
     { dataKey: 'name', header: 'Name' },
     { dataKey: 'marks', header: 'Marks' }]

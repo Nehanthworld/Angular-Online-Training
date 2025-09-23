@@ -1,14 +1,19 @@
-<!-- <app-common-grid 
+<app-common-grid 
 [data]="productGridData" 
 [columns]="productGridColums"
 (actionOutput)="handleAction($event)">
-</app-common-grid> -->
+</app-common-grid>
 
-{{productGridData[0].price | currency:'CAD':'symbol-narrow':'1.0-5'}}
+{{firstName}}
+<div [innerHTML]="5 | starrating">
+
+</div>
+<h1> {{ 'Venkat' | wishingpipe | uppercase}}</h1>
+<!-- {{productGridData[0].price | currency:'CAD':'symbol-narrow':'1.0-5'}}
 <br />
 {{date | date:'dd/MM/yyyy HH:mm':'UTC'}}
 <br />
-{{firstName}}
+
 <br />
 <br />
 {{(isAdmin? 'Admin User': 'Normal User')| uppercase}}
@@ -16,4 +21,4 @@
 @for (item of product | keyvalue; track $index) {
     {{item.key}}:
     {{item.value}} <br />
-}
+} -->

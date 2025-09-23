@@ -13,7 +13,7 @@
         @for(dataItem of data; track dataItem.id){
         <tr>
             @for(column of columns.dataColumns; track column.header){
-            <td>{{dataItem[column.dataKey]}}</td>
+            <td [innerHTML]="dataItem | datagetter : column"></td>
             }
             @if(columns.actions != null && columns.actions.length > 0){
             <td>

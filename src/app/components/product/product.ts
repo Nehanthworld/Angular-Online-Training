@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { GridColumn } from '../shared/common-grid/grid.model';
+import { IGridColumn } from '../shared/common-grid/grid.model';
 import { ProductModel } from './product.model';
 import { productGridColums } from './product.model';
 import { UpperCasePipe } from '@angular/common';
@@ -13,7 +13,7 @@ import { UpperCasePipe } from '@angular/common';
 export class Product {
   firstName: string = 'venkat';
 
-  constructor(private uppercasePipe: UpperCasePipe) { 
+  constructor(private uppercasePipe: UpperCasePipe) {
     this.firstName = this.uppercasePipe.transform(this.firstName)
   }
   date: Date = new Date();
@@ -23,24 +23,17 @@ export class Product {
   product: any = { id: 4, name: 'Monitor', price: 15000 };
 
 
-  productGridColums: GridColumn = productGridColums;
+  productGridColums: IGridColumn = productGridColums;
   productGridData: ProductModel[] = [
-    { id: 1, name: 'Laptop', price: 85000.58239754},//, MFGDate, userRating },
-    { id: 2, name: 'Mobile', price: 25000 },
-    { id: 3, name: 'Tablet', price: 30000 },
-    { id: 4, name: 'Monitor', price: 15000 }
+    { id: 1, name: 'Laptop', price: 85000.58239754, MFGDate: new Date(), userRating: 5 },
+    { id: 2, name: 'Mobile', price: 25000, MFGDate: new Date(), userRating: 4.5 },
+    { id: 3, name: 'Tablet', price: 30000, MFGDate: new Date(), userRating: 3.5 },
+    { id: 4, name: 'Monitor', price: 15000, MFGDate: new Date(), userRating: 2.5 }
   ];
 
   handleAction(actionData: any) {
     if (actionData.actionName === 'edit') {
       //Edit logic
-      //TOBE replaced with DB logic
-      this.productGridData = [
-        { id: 1, name: 'Laptop1', price: 85000 },
-        { id: 2, name: 'Mobile1', price: 25000 },
-        { id: 3, name: 'Tablet1', price: 30000 },
-        { id: 4, name: 'Monitor1', price: 15000 }
-      ]
       console.log('Edit action triggered for:', actionData.rowData);
     }
     else if (actionData.actionName === 'delete') {

@@ -4,11 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { Student } from './components/student/student';
-import { CommonModule, UpperCasePipe } from '@angular/common';
+import { CommonModule, CurrencyPipe, DatePipe, UpperCasePipe } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonGrid } from './components/shared/common-grid/common-grid';
 import { Product } from './components/product/product';
 import { Eventsdemo } from './components/eventsdemo/eventsdemo';
+import { DatagetterPipe } from './components/shared/pipes/datagetter-pipe';
+import { StarratingPipe } from './components/shared/pipes/starrating-pipe';
+import { WishingpipePipe } from './components/shared/pipes/wishingpipe-pipe';
 
 @NgModule({
   declarations: [
@@ -17,6 +20,9 @@ import { Eventsdemo } from './components/eventsdemo/eventsdemo';
     CommonGrid,
     Product,
     Eventsdemo,
+    DatagetterPipe,
+    StarratingPipe,
+    WishingpipePipe,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +32,11 @@ import { Eventsdemo } from './components/eventsdemo/eventsdemo';
     ReactiveFormsModule
   ],
   providers: [
-    provideBrowserGlobalErrorListeners()
+    provideBrowserGlobalErrorListeners(),
+    UpperCasePipe,
+    DatePipe,
+    CurrencyPipe,
+    StarratingPipe
   ],
   bootstrap: [App]
 })

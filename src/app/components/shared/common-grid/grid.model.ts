@@ -1,14 +1,16 @@
-export interface GridColumn {
-    dataColumns: DataColumn[];
-    actions?: ActionColumn[];
+export interface IGridColumn {
+    dataColumns: IDataColumn[];
+    actions?: IActionColumn[];
 }
 
-interface DataColumn {
+export interface IDataColumn {
     dataKey: string;
     header: string;
+    dataType?: string; //string, number, date, boolean
+    format?: string; //for date and number
 }
 
-interface ActionColumn {
+interface IActionColumn {
     title: string;
     cssClass: string;
     icon: string;
