@@ -1,6 +1,8 @@
 import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
 import { IGridColumn } from '../shared/common-grid/grid.model';
 import { StudentModel } from './student.model';
+import { ProductService } from '../product/product-service';
+
 
 @Component({
   selector: 'app-student',
@@ -9,7 +11,12 @@ import { StudentModel } from './student.model';
   styleUrl: './student.css'
 })
 export class Student {
-
+  products: any[] = [];
+  constructor(
+    //private productService: ProductService
+  ) {
+    //this.products = this.productService.products;
+  }
   studentTableColums: IGridColumn = {
     dataColumns: [{ dataKey: 'id', header: 'ID' },
     { dataKey: 'name', header: 'Name' },

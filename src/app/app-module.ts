@@ -12,6 +12,8 @@ import { Eventsdemo } from './components/eventsdemo/eventsdemo';
 import { DatagetterPipe } from './components/shared/pipes/datagetter-pipe';
 import { StarratingPipe } from './components/shared/pipes/starrating-pipe';
 import { WishingpipePipe } from './components/shared/pipes/wishingpipe-pipe';
+import { ProductService } from './components/product/product-service';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { WishingpipePipe } from './components/shared/pipes/wishingpipe-pipe';
     UpperCasePipe,
     DatePipe,
     CurrencyPipe,
-    StarratingPipe
+    StarratingPipe,
+    //ProductService
+    CookieService
   ],
   bootstrap: [App]
 })
