@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, computed, effect } from '@angular/core';
 import { IGridColumn } from '../shared/common-grid/grid.model';
 import { ProductModel } from './product.model';
 import { productGridColums } from './product.model';
@@ -13,10 +13,22 @@ import { ProductService } from './product-service';
 })
 export class Product {
   firstName: string = 'venkat';
-
+  price!: number;
+  //totalPrice!: number;
+  totalPrice = computed(() =>
+    this.productService.signalprice() * this.productService.signalquantity());
   constructor(private uppercasePipe: UpperCasePipe,
     private productService: ProductService,
   ) {
+
+
+    // effect(() => {
+    //   this.price = this.productService.signalprice();
+    //   console.log('Price changed to:', this.productService.signalprice());
+    // })
+
+
+
     this.firstName = this.uppercasePipe.transform(this.firstName)
     this.productGridData = this.productService.products;
     productService.saveDataToSessionStorage();
@@ -35,7 +47,10 @@ export class Product {
 
   productGridColums: IGridColumn = productGridColums;
   productGridData!: ProductModel[];
-
+  updatePrice() {
+    this.productService.signalprice.set(this.productService.signalprice() + 100);
+    console.log(this.productService.signalprice());
+  }
   handleAction(actionData: any) {
     if (actionData.actionName === 'edit') {
       //Edit logic

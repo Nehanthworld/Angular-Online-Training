@@ -1,10 +1,16 @@
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
+  normalprice = 100;
+  signalprice = signal(100);
+
+  normalquantity = 100;
+  signalquantity = signal(100);
+
   private cookieService = inject(CookieService);
   products = [
     { id: 1, name: 'Laptop', price: 85000.58239754, MFGDate: new Date(), userRating: 5 },

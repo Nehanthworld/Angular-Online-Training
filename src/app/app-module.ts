@@ -14,32 +14,25 @@ import { StarratingPipe } from './components/shared/pipes/starrating-pipe';
 import { WishingpipePipe } from './components/shared/pipes/wishingpipe-pipe';
 import { ProductService } from './components/product/product-service';
 import { CookieService } from 'ngx-cookie-service';
+import { ProductModule } from './components/product/product-module';
+import { StudentModule } from './components/student/student-module';
 
 @NgModule({
   declarations: [
     App,
-    Student,
-    CommonGrid,
-    Product,
-    Eventsdemo,
-    DatagetterPipe,
-    StarratingPipe,
-    WishingpipePipe,
+    Eventsdemo
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ProductModule,
+    StudentModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
-    UpperCasePipe,
-    DatePipe,
-    CurrencyPipe,
-    StarratingPipe,
-    //ProductService
     CookieService
   ],
   bootstrap: [App]
