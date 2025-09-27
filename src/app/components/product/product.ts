@@ -13,20 +13,29 @@ import { ProductService } from './product-service';
 })
 export class Product {
   firstName: string = 'venkat';
-  price!: number;
-  //totalPrice!: number;
-  totalPrice = computed(() =>
-    this.productService.signalprice() * this.productService.signalquantity());
+  price: number = 10;
+  price2?: number = 100;
+  price3: string = '';
+  totalPrice!: number;
+  // totalPrice = computed(() =>
+  //   this.productService.signalprice() * this.productService.signalquantity());
+  
   constructor(private uppercasePipe: UpperCasePipe,
     private productService: ProductService,
   ) {
-
-
-    // effect(() => {
-    //   this.price = this.productService.signalprice();
-    //   console.log('Price changed to:', this.productService.signalprice());
-    // })
-
+console.log(this.price)
+    // this.price = 10;
+    // this.price = undefined;
+    effect(() => {
+      this.price = this.productService.signalprice();
+      //Get priceFilterd values from backend
+      //API Call - price filter
+      console.log('Price changed to:', this.productService.signalprice());
+    })
+    effect(() => {
+      this.price = this.productService.signalquantity();
+      console.log('Price changed to:', this.productService.signalquantity());
+    })
 
 
     this.firstName = this.uppercasePipe.transform(this.firstName)
@@ -47,8 +56,11 @@ export class Product {
 
   productGridColums: IGridColumn = productGridColums;
   productGridData!: ProductModel[];
+  registerEffect() {
+
+  }
   updatePrice() {
-    this.productService.signalprice.set(this.productService.signalprice() + 100);
+    //this.productService.signalprice.set(this.productService.signalprice() + 100);
     console.log(this.productService.signalprice());
   }
   handleAction(actionData: any) {
