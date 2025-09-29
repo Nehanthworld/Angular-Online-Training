@@ -44,4 +44,5 @@ export class ProductService {
   getDataToCookies() {
     return this.cookieService.get('myData');
   }
+
 }

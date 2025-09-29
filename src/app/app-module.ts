@@ -16,11 +16,13 @@ import { ProductService } from './components/product/product-service';
 import { CookieService } from 'ngx-cookie-service';
 import { ProductModule } from './components/product/product-module';
 import { StudentModule } from './components/student/student-module';
+import { Observablesdemo } from './components/observablesdemo/observablesdemo';
 
 @NgModule({
   declarations: [
     App,
-    Eventsdemo
+    Eventsdemo,
+    Observablesdemo
   ],
   imports: [
     BrowserModule,

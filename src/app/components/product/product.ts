@@ -19,11 +19,12 @@ export class Product {
   totalPrice!: number;
   // totalPrice = computed(() =>
   //   this.productService.signalprice() * this.productService.signalquantity());
-  
+
   constructor(private uppercasePipe: UpperCasePipe,
     private productService: ProductService,
   ) {
-console.log(this.price)
+
+    console.log(this.price)
     // this.price = 10;
     // this.price = undefined;
     effect(() => {
