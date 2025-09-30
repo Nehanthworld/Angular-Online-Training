@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ObservablesService } from './observables.service';
+import { map, skip, takeLast, tap } from 'rxjs';
 
 @Component({
   selector: 'app-observablesdemo',
@@ -11,7 +12,15 @@ export class Observablesdemo {
   message: string = "Loading data...";
   message2: string = "Loading data...";
   constructor(private observablesService: ObservablesService) {
-    observablesService.obs$.
+    observablesService.numbers$.pipe(
+      tap(n => {
+        console.log('Before map:', n);
+      }), map(n => n * 2),
+      tap(n => {
+        console.log('After map:', n);
+      }),
+    takeLast(3),
+  skip(1)).
       subscribe({
         next: (data) => {
           this.message += "Data received:" + data;
@@ -20,10 +29,34 @@ export class Observablesdemo {
           this.message = "Error:" + error;
         },
         complete: () => {
-          this.message = "Data stream completed";
+          //this.message = "Data stream completed";
         }
       });
 
+
+    // observablesService.obsReplaySubject$.
+    //   subscribe({
+    //     next: (data) => {
+    //       this.message += "Data received:" + data;
+    //     },
+    //     error: (error) => {
+    //       this.message = "Error:" + error;
+    //     },
+    //     complete: () => {
+    //       this.message = "Data stream completed";
+    //     }
+    //   });
+
+    // observablesService.obsReplaySubject$.next(1);//1
+    // setTimeout(() => {
+    //   observablesService.obsReplaySubject$.next(2);//1,2
+    // }, 3000);
+    // setTimeout(() => {
+    //   observablesService.obsReplaySubject$.next(3);
+    // }, 6000);
+    // setTimeout(() => {
+    //   observablesService.obsReplaySubject$.next(4);
+    // }, 9000);
     ////Promise Demo
     // observablesService.getDataWithPromise().then((data) => {
     //   this.message = "Success:" + data;
@@ -39,14 +72,18 @@ export class Observablesdemo {
   }
 
   buttonClick() {
-        this.observablesService.obs$.next(Math.random());
-        this.observablesService.obs$.next(Math.random());
-        this.observablesService.obs$.next(Math.random());
-        this.observablesService.obs$.next(Math.random());
-        this.observablesService.obs$.next(Math.random());
-        this.observablesService.obs$.next(Math.random());
-        this.observablesService.obs$.next(Math.random());
-        this.observablesService.obs$.next(Math.random());
-    
+    this.observablesService.obsReplaySubject$.
+      subscribe({
+        next: (data) => {
+          this.message += "Data received:" + data;
+        },
+        error: (error) => {
+          this.message = "Error:" + error;
+        },
+        complete: () => {
+          this.message = "Data stream completed";
+        }
+      });
+
   }
 }
