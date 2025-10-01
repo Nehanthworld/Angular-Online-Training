@@ -18,7 +18,8 @@ const productGridColums: IGridColumn = {
     ],
     actions: [
         { title: 'Edit', cssClass: 'btn btn-primary', icon: 'fa fa-edit', actionName: 'edit' },
-        { title: 'Delete', cssClass: 'btn btn-danger', icon: 'fa fa-trash', actionName: 'delete' }
+        { title: 'Delete', cssClass: 'btn btn-danger', icon: 'fa fa-trash', actionName: 'delete' },
+        { title: 'View', cssClass: 'btn btn-info', icon: 'fa fa-edit', actionName: 'view' }
     ]
 };
 

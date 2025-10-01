@@ -1,8 +1,18 @@
-{{parentData | json}}
-<h1>Welcome to angular</h1>
-<!-- <app-eventsdemo></app-eventsdemo> -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Amazon Cart</a>
 
-<!-- <app-student [student-name]="title" [studentData]="students" (studentOutput)="handlerInParent($event)"></app-student>
-
-<app-product></app-product> -->
-<app-observablesdemo></app-observablesdemo>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" routerLink="products" routerLinkActive="active">Products</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="students" routerLinkActive="active">Students</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="obsdemo" routerLinkActive="active">Observables</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<router-outlet></router-outlet>

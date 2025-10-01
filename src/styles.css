@@ -1,4 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
-.yellow-color{
-    color:#e2be4d
+.yellow-color {
+    color: #e2be4d
+}
+
+.route-link {
+    padding: 5px;
+    background: aqua;
+    margin: 10px;
+}
+
+.route-link.active {
+    padding: 5px;
+    background: red;
+    margin: 10px;
 }

@@ -17,12 +17,14 @@ import { CookieService } from 'ngx-cookie-service';
 import { ProductModule } from './components/product/product-module';
 import { StudentModule } from './components/student/student-module';
 import { Observablesdemo } from './components/observablesdemo/observablesdemo';
+import { Notfound } from './components/notfound/notfound';
 
 @NgModule({
   declarations: [
     App,
     Eventsdemo,
-    Observablesdemo
+    Observablesdemo,
+    Notfound
   ],
   imports: [
     BrowserModule,

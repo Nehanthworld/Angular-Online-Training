@@ -4,6 +4,7 @@ import { ProductModel } from './product.model';
 import { productGridColums } from './product.model';
 import { UpperCasePipe } from '@angular/common';
 import { ProductService } from './product-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -22,6 +23,7 @@ export class Product {
 
   constructor(private uppercasePipe: UpperCasePipe,
     private productService: ProductService,
+    private _router: Router
   ) {
 
     console.log(this.price)
@@ -72,6 +74,10 @@ export class Product {
     else if (actionData.actionName === 'delete') {
       //Delete logic
       console.log('Delete action triggered for:', actionData.rowData);
+    }
+    else if (actionData.actionName === 'view') {
+      //Delete logic
+      this._router.navigate(['products', actionData.rowData.id]);
     }
   }
 }
