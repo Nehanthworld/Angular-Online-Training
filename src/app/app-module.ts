@@ -18,13 +18,19 @@ import { ProductModule } from './components/product/product-module';
 import { StudentModule } from './components/student/student-module';
 import { Observablesdemo } from './components/observablesdemo/observablesdemo';
 import { Notfound } from './components/notfound/notfound';
+import { Home } from './components/home/home';
+import { Producthome } from './components/producthome/producthome';
+import { Proddetailshome } from './components/proddetailshome/proddetailshome';
 
 @NgModule({
   declarations: [
     App,
     Eventsdemo,
     Observablesdemo,
-    Notfound
+    Notfound,
+    Home,
+    Producthome,
+    Proddetailshome
   ],
   imports: [
     BrowserModule,

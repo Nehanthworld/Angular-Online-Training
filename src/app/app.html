@@ -4,13 +4,15 @@
     <div class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" routerLink="products" routerLinkActive="active">Products</a>
+                <a class="nav-link" routerLink="products" routerLinkActive="active"
+                [queryParams]="{id:1, name: 'Dell Laptop'}" fragment="testFragment">Products</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" routerLink="students" routerLinkActive="active">Students</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="obsdemo" routerLinkActive="active">Observables</a>
+                <a class="nav-link" routerLink="obsdemo" routerLinkActive="active"
+                >Observables</a>
             </li>
         </ul>
     </div>

@@ -4,7 +4,7 @@ import { ProductModel } from './product.model';
 import { productGridColums } from './product.model';
 import { UpperCasePipe } from '@angular/common';
 import { ProductService } from './product-service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -23,7 +23,8 @@ export class Product {
 
   constructor(private uppercasePipe: UpperCasePipe,
     private productService: ProductService,
-    private _router: Router
+    private _router: Router,
+    private _currentRoute: ActivatedRoute
   ) {
 
     console.log(this.price)
@@ -49,6 +50,13 @@ export class Product {
     console.log('Session Storage Data:', productService.getDataToSessionStorage());
     console.log('Local Storage Data:', productService.getDataToLocalStorage());
     console.log('Cookies Data:', productService.getDataToCookies());
+
+    let productId = this._currentRoute.snapshot.queryParamMap.get('id');
+    console.log('Product Id from Route:', productId);
+    let productName = this._currentRoute.snapshot.queryParamMap.get('name');
+    console.log('Product Name from Route:', productName);
+    let fragment = this._currentRoute.snapshot.fragment;
+    console.log('Fragment from Route:', fragment);
   }
   date: Date = new Date();
   lastName: string = 'c';
@@ -77,7 +85,14 @@ export class Product {
     }
     else if (actionData.actionName === 'view') {
       //Delete logic
-      this._router.navigate(['products', actionData.rowData.id]);
+      this._router.navigate(['products', actionData.rowData.id],
+        {
+          queryParams:{ name:'123'},
+          queryParamsHandling: 'replace',
+          fragment: 'testFragment2'
+        }
+      );//, 
+        //{ queryParams: { name:actionData.rowData.name, userrating:actionData.rowData.userRating } });
     }
   }
 }
