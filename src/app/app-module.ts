@@ -21,6 +21,9 @@ import { Notfound } from './components/notfound/notfound';
 import { Home } from './components/home/home';
 import { Producthome } from './components/producthome/producthome';
 import { Proddetailshome } from './components/proddetailshome/proddetailshome';
+import { Filters } from './components/filters/filters';
+import { Orders } from './components/orders/orders';
+import { Catalog } from './components/catalog/catalog';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import { Proddetailshome } from './components/proddetailshome/proddetailshome';
     Notfound,
     Home,
     Producthome,
-    Proddetailshome
+    Proddetailshome,
+    Filters,
+    Orders,
+    Catalog
   ],
   imports: [
     BrowserModule,

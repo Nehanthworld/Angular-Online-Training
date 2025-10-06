@@ -1,15 +1,15 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { IGridColumn } from './grid.model';
+import { ICardColumn } from './card.model';
 
 @Component({
-  selector: 'app-common-grid',
+  selector: 'app-cards',
   standalone: false,
-  templateUrl: './common-grid.html',
-  styleUrl: './common-grid.css'
+  templateUrl: './cards.html',
+  styleUrl: './cards.css'
 })
-export class CommonGrid {
+export class Cards {
   @Input() data!: any[]
-  @Input() columns!: IGridColumn;
+  @Input() columns!: ICardColumn;
   @Output() actionOutput = new EventEmitter();
 
   rowAction(actionName: any, rowData: any) {

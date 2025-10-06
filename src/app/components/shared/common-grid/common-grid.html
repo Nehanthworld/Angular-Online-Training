@@ -18,8 +18,8 @@
             @if(columns.actions != null && columns.actions.length > 0){
             <td>
                 @for(action of columns.actions; track action){
-                <button [class]="action.cssClass"
-                (click)="rowAction(action.actionName, dataItem)">{{action.title}}</button>
+                <button [class]="action.cssClass" style="margin-right:5px;"
+                    (click)="rowAction(action.actionName, dataItem)">{{action.title}}</button>
                 }
                 <!-- <button class="btn btn-primary">Edit</button>
                 <button class="btn btn-danger">Delete</button> -->

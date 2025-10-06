@@ -1,6 +1,4 @@
-import { ActionType } from "../../product/product.model";
-
-export interface IGridColumn {
+export interface ICardColumn {
     dataColumns: IDataColumn[];
     actions?: IActionColumn[];
 }
@@ -19,3 +17,5 @@ interface IActionColumn {
     actionName: string;
     actionType?: ActionType;
 }
+
+export type ActionType = 'IconOnly' | 'TextOnly' | 'TextAndIcon';

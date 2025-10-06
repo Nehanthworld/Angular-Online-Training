@@ -5,6 +5,7 @@ import { DatagetterPipe } from './pipes/datagetter-pipe';
 import { WishingpipePipe } from './pipes/wishingpipe-pipe';
 import { CommonGrid } from './common-grid/common-grid';
 import { FormsModule } from '@angular/forms';
+import { Cards } from './cards/cards';
 
 
 
@@ -14,6 +15,7 @@ import { FormsModule } from '@angular/forms';
     StarratingPipe,
     WishingpipePipe,
     CommonGrid,
+    Cards,
   ],
   imports: [
     CommonModule
@@ -30,6 +32,7 @@ import { FormsModule } from '@angular/forms';
     CommonGrid,
     CommonModule,
     FormsModule,
+    Cards
   ]
 })
 export class SharedModule { }

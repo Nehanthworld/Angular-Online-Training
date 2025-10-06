@@ -1,0 +1,29 @@
+<div class="card-container">
+    @for (dataItem of data; track dataItem.id) {
+    <div class="card card-item">
+        <img [src]="dataItem['imagePath']" class="card-img-top" alt="Fissure in Sandstone" />
+        <div class="card-body">
+            <h5 class="card-title">{{dataItem['name']}}</h5>
+            <p class="card-text">{{dataItem['description']}}</p>
+            @if(columns.actions != null && columns.actions.length > 0){
+            <td>
+                @for(action of columns.actions; track action){
+                <button [class]="action.cssClass" style="margin-right:5px;"
+                    (click)="rowAction(action.actionName, dataItem)">
+                    @if(action.actionType == 'IconOnly'){
+                    <i [ngClass]="action.icon"></i>
+                    }
+                    @else if(action.actionType == 'TextOnly'){
+                    {{action.title}}
+                    }
+                    @else if(action.actionType == 'TextAndIcon'){
+                    <i [ngClass]="action.icon"></i>{{action.title}}
+                    }
+                </button>
+                }
+            </td>
+            }
+        </div>
+    </div>
+    }
+</div>
