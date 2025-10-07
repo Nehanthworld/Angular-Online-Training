@@ -1,37 +1,47 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Product } from './components/product/product';
-import { Student } from './components/student/student';
-import { Observablesdemo } from './components/observablesdemo/observablesdemo';
 import { Notfound } from './components/notfound/notfound';
 import { ProductDetails } from './components/product/product-details/product-details';
 import { Home } from './components/home/home';
-import { Producthome } from './components/producthome/producthome';
-import { Proddetailshome } from './components/proddetailshome/proddetailshome';
-import { Cards } from './components/shared/cards/cards';
 import { Catalog } from './components/catalog/catalog';
+import { Orders } from './components/orders/orders';
+import { OrderDetails } from './components/shared/order-details/order-details';
+import { Account } from './components/account/account';
+import { canActivateGuard } from './route-guards/can-activate.guard';
+import { canActivateChildGuard } from './route-guards/can-activate-child.guard';
 
 const routes: Routes = [
+  { path: 'home', component: Home },
   {
-    path: 'home', component: Home,
-    // children: [
-    //   {
-    //     path: '', component: Producthome,
-    //   },
-    //   {
-    //     path: 'products', component: Product,
-    //     children: [
-    //       { path: '', component: Proddetailshome },
-    //       { path: ':id', component: ProductDetails },
-    //     ]
-    //   },
-    // ]
+    path: 'catalog',
+    component: Catalog,
+    canActivate: [canActivateGuard],
+    data: { allow_annonymous: true }
   },
-  { path: 'catalog', component: Catalog },
   { path: 'products', component: Product },
   { path: 'products/:id', component: ProductDetails },
-  { path: 'cards', component: Cards },
-  { path: 'obsdemo', component: Observablesdemo },
+  { path: 'orders', component: Orders },
+  {
+    path: 'account', component: Account,
+    canActivate: [canActivateGuard],
+    data: { roles: ['admin'], privileges: ['view,edit,create,delete'] },
+    children: [
+      {
+        path: '', component: Account,
+
+      },
+      {
+        path: 'myorders', component: Orders,
+        canActivateChild: [canActivateChildGuard],
+        data: { roles: ['user'], privileges: ['view,edit,create,delete'] },
+        children: [
+          { path: '', component: Orders },
+          { path: ':id', component: OrderDetails },
+        ]
+      },
+    ]
+  },
   { path: 'notfound', component: Notfound },
   { path: '**', redirectTo: 'home' },
 ];

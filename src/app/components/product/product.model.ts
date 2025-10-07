@@ -19,8 +19,8 @@ const productGridColums: IGridColumn = {
         { dataKey: 'userRating', header: 'User Reviews', dataType: 'rating' },
     ],
     actions: [
-        { title: 'Edit', cssClass: 'btn btn-primary', icon: 'fa fa-edit', actionName: 'edit', actionType: 'IconOnly' },
-        { title: 'Delete', cssClass: 'btn btn-danger', icon: 'fa fa-trash', actionName: 'delete', actionType: 'IconOnly' },
+        { title: 'Edit', cssClass: 'btn btn-primary', icon: 'fa fa-shopping-cart', actionName: 'edit', actionType: 'IconOnly' },
+        // { title: 'Delete', cssClass: 'btn btn-danger', icon: 'fa fa-trash', actionName: 'delete', actionType: 'IconOnly' },
         { title: 'View', cssClass: 'btn btn-info', icon: 'fa fa-eye', actionName: 'view', actionType: 'IconOnly' }
     ]
 };

@@ -6,6 +6,7 @@ import { WishingpipePipe } from './pipes/wishingpipe-pipe';
 import { CommonGrid } from './common-grid/common-grid';
 import { FormsModule } from '@angular/forms';
 import { Cards } from './cards/cards';
+import { OrderDetails } from './order-details/order-details';
 
 
 
@@ -16,6 +17,7 @@ import { Cards } from './cards/cards';
     WishingpipePipe,
     CommonGrid,
     Cards,
+    OrderDetails,
   ],
   imports: [
     CommonModule

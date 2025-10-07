@@ -5,3 +5,8 @@ h1 {
 .test{
     color: blue;
 }
+.header-links{
+    color: white;
+    text-decoration-line: none;
+    margin-right: 5px;
+}

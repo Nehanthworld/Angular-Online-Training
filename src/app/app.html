@@ -4,16 +4,30 @@
     <div class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" routerLink="products" routerLinkActive="active"
-                [queryParams]="{id:1, name: 'Dell Laptop'}" fragment="testFragment">Products</a>
+                <a class="nav-link" routerLink="catalog" routerLinkActive="active"
+                    [queryParams]="{id:1, name: 'Dell Laptop'}" fragment="testFragment">Products</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="students" routerLinkActive="active">Students</a>
+                <a class="nav-link" routerLink="obsdemo" routerLinkActive="active">Categories</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="obsdemo" routerLinkActive="active"
-                >Observables</a>
+                <a class="nav-link" routerLink="account" routerLinkActive="active">Account</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="account/myorders" routerLinkActive="active">myorders</a>
+            </li>
+        </ul>
+        <form class="d-flex">
+            <input class="form-control me-2" type="text" placeholder="Search">
+            <button class="btn btn-primary" type="button">Search</button>
+        </form>
+        <ul class="navbar-nav flex-row flex-wrap ms-md-auto">
+            <li><a routerLink="signup" class="header-links"><span class="fa fa-user"></span> Sign Up</a></li>
+            <li>
+                <input type="button" class="btn btn-link header-links" value="Login" (click)="login()" />
+                <!-- <a routerLink="login" class="header-links"><span class="fa fa-lock"></span> Login</a> -->
+            </li>
+            <li><a routerLink="cart" class="header-links"><span class="fa fa-shopping-cart"></span> Cart</a></li>
         </ul>
     </div>
 </nav>
