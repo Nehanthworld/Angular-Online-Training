@@ -10,6 +10,8 @@ import { OrderDetails } from './components/shared/order-details/order-details';
 import { Account } from './components/account/account';
 import { canActivateGuard } from './route-guards/can-activate.guard';
 import { canActivateChildGuard } from './route-guards/can-activate-child.guard';
+import { AccountHome } from './components/account/account-home/account-home';
+import { canDeactivateGuard } from './route-guards/can-deactivate.guard';
 
 const routes: Routes = [
   { path: 'home', component: Home },
@@ -19,22 +21,26 @@ const routes: Routes = [
     canActivate: [canActivateGuard],
     data: { allow_annonymous: true }
   },
-  { path: 'products', component: Product },
+  {
+    path: 'products', component: Product,
+    canDeactivate: [canDeactivateGuard],
+  },
   { path: 'products/:id', component: ProductDetails },
   { path: 'orders', component: Orders },
   {
     path: 'account', component: Account,
     canActivate: [canActivateGuard],
-    data: { roles: ['admin'], privileges: ['view,edit,create,delete'] },
+    canActivateChild: [canActivateChildGuard],
+    data: { roles: [{ role: 'admin', privileges: ['view', 'edit', 'create', 'delete'] }], },
     children: [
       {
-        path: '', component: Account,
+        path: 'home', component: AccountHome,
+        data: { roles: [{ role: 'user', privileges: ['view'] }, { role: 'admin', privileges: ['view', 'edit', 'create', 'delete'] }], privileges: ['view,edit,create,delete'] },
 
       },
       {
         path: 'myorders', component: Orders,
-        canActivateChild: [canActivateChildGuard],
-        data: { roles: ['user'], privileges: ['view,edit,create,delete'] },
+        data: { roles: [{ role: 'user', privileges: ['view'] }, { role: 'admin', privileges: ['view', 'edit', 'create', 'delete'] }] },
         children: [
           { path: '', component: Orders },
           { path: ':id', component: OrderDetails },

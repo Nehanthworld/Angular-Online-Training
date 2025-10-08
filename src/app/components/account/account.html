@@ -1,3 +1,45 @@
-<p>account works!</p>
-
-<router-outlet></router-outlet>
+<div class="row">
+    <div class="col-12">
+        <h3>Account Details</h3>
+        <hr />
+    </div>
+    <div class="col-3">
+        <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item">
+                <a routerLink="home" routerLinkActive="active" class="nav-link">
+                    <svg class="bi me-2" width="16" height="16">
+                        <use xlink:href="#home"></use>
+                    </svg>
+                    Home
+                </a>
+            </li>
+            <li>
+                <a routerLink="myorders" routerLinkActive="active" class="nav-link">
+                    <svg class="bi me-2" width="16" height="16">
+                        <use xlink:href="#table"></use>
+                    </svg>
+                    Orders
+                </a>
+            </li>
+            <li>
+                <a routerLink="mywishlist" routerLinkActive="active" class="nav-link">
+                    <svg class="bi me-2" width="16" height="16">
+                        <use xlink:href="#grid"></use>
+                    </svg>
+                    Wish List
+                </a>
+            </li>
+            <li>
+                <a routerLink="giftcards" routerLinkActive="active" class="nav-link">
+                    <svg class="bi me-2" width="16" height="16">
+                        <use xlink:href="#people-circle"></use>
+                    </svg>
+                    Gift Cards
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-9">
+        <router-outlet></router-outlet>
+    </div>
+</div>

@@ -5,6 +5,7 @@ import { productGridColums } from './product.model';
 import { UpperCasePipe } from '@angular/common';
 import { ProductService } from './product-service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ICanComponentDeactivate } from '../../route-guards/can-deactivate.guard';
 
 @Component({
   selector: 'app-product',
@@ -12,7 +13,8 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './product.html',
   styleUrl: './product.css'
 })
-export class Product {
+export class Product implements ICanComponentDeactivate {
+  oldname: string = 'venkat';
   firstName: string = 'venkat';
   price: number = 10;
   price2?: number = 100;
@@ -42,7 +44,7 @@ export class Product {
     })
 
 
-    this.firstName = this.uppercasePipe.transform(this.firstName)
+    //this.firstName = this.uppercasePipe.transform(this.firstName)
     this.productGridData = this.productService.products;
     productService.saveDataToSessionStorage();
     productService.saveDataToLocalStorage();
@@ -57,6 +59,9 @@ export class Product {
     console.log('Product Name from Route:', productName);
     let fragment = this._currentRoute.snapshot.fragment;
     console.log('Fragment from Route:', fragment);
+  }
+  canDeactivate(): boolean {
+    return this.firstName !== this.oldname;
   }
   date: Date = new Date();
   lastName: string = 'c';

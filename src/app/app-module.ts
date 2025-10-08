@@ -26,6 +26,8 @@ import { Orders } from './components/orders/orders';
 import { Catalog } from './components/catalog/catalog';
 import { Account } from './components/account/account';
 import { ActivatedRouteSnapshot } from '@angular/router';
+import { AccountHome } from './components/account/account-home/account-home';
+import { Address } from './components/account/address/address';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { ActivatedRouteSnapshot } from '@angular/router';
     Filters,
     Orders,
     Catalog,
-    Account
+    Account,
+    AccountHome,
+    Address
   ],
   imports: [
     BrowserModule,
