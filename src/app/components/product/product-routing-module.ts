@@ -8,7 +8,7 @@ import { Catalog } from './catalog/catalog';
 
 const routes: Routes = [
     {
-        path: 'products', component: Product,
+        path: '', component: Product,
         canDeactivate: [canDeactivateGuard],
     },
     { path: 'products/:id', component: ProductDetails },

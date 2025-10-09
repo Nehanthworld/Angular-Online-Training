@@ -9,7 +9,7 @@ import { AccountHome } from './account-home/account-home';
 
 const routes: Routes = [
   {
-    path: 'account', component: Account,
+    path: '', component: Account,
     canActivate: [canActivateGuard],
     canActivateChild: [canActivateChildGuard],
     data: { roles: [{ role: 'admin', privileges: ['view', 'edit', 'create', 'delete'] }], },
