@@ -3,9 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { canActivateChildGuard } from '../../route-guards/can-activate-child.guard';
 import { canActivateGuard } from '../../route-guards/can-activate.guard';
 import { Orders } from '../orders/orders';
-import { OrderDetails } from '../shared/order-details/order-details';
+import { OrderDetails } from '../orders/order-details/order-details';
 import { Account } from './account';
 import { AccountHome } from './account-home/account-home';
+import { dataResolver } from '../../route-guards/route-resolver';
 
 const routes: Routes = [
   {
@@ -16,6 +17,7 @@ const routes: Routes = [
     children: [
       {
         path: 'home', component: AccountHome,
+        resolve: { sampledata: dataResolver },
         data: { roles: [{ role: 'user', privileges: ['view'] }, { role: 'admin', privileges: ['view', 'edit', 'create', 'delete'] }], privileges: ['view,edit,create,delete'] },
 
       },

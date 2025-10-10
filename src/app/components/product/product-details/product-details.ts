@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -8,8 +8,10 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './product-details.css'
 })
 export class ProductDetails {
-  productId!: string;
+  @Input()
+  id!: string;
+  @Input() name!: string;
   constructor(private _route: ActivatedRoute) {
-    this.productId = this._route.snapshot.paramMap.get('id')??'0';
+    //this.productId = this._route.snapshot.paramMap.get('id')??'0';
   }
 }

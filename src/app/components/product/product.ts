@@ -90,7 +90,7 @@ export class Product implements ICanComponentDeactivate {
     }
     else if (actionData.actionName === 'view') {
       //Delete logic
-      this._router.navigate(['products', actionData.rowData.id],
+      this._router.navigate(['products', actionData.rowData.id, actionData.rowData.name],
         {
           queryParams:{ name:'123'},
           queryParamsHandling: 'replace',
