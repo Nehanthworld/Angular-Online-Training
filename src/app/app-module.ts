@@ -8,6 +8,8 @@ import { CommonModule } from '@angular/common';
 import { CookieService } from 'ngx-cookie-service';
 import { Notfound } from './components/notfound/notfound';
 import { Home } from './components/home/home';
+import { Lifecycledemo } from './components/lifecycledemo/lifecycledemo';
+import { Childdemo } from './components/lifecycledemo/childdemo/childdemo';
 
 
 @NgModule({
@@ -17,6 +19,8 @@ import { Home } from './components/home/home';
     //Observablesdemo,
     Notfound,
     Home,
+    Lifecycledemo,
+    Childdemo,
   ],
   imports: [
     BrowserModule,

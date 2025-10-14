@@ -23,6 +23,7 @@ const routes: Routes = [
       },
       {
         path: 'myorders', component: Orders,
+        outlet: 'secondchild',
         data: { roles: [{ role: 'user', privileges: ['view'] }, { role: 'admin', privileges: ['view', 'edit', 'create', 'delete'] }] },
         children: [
           { path: '', component: Orders },

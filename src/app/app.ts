@@ -1,5 +1,6 @@
 import { Component, HostListener, inject, signal } from '@angular/core';
 import { AuthenticationService } from './services/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,7 @@ import { AuthenticationService } from './services/authentication.service';
 })
 export class App {
   authenticationService = inject(AuthenticationService);
+  router = inject(Router)
   login() {
     this.authenticationService.login('admin');
   }
@@ -19,5 +21,10 @@ export class App {
   handlerInParent(data: any) {
     //this.parentData = data;
   }
-
+  clear() {
+    this.router.navigate([{ outlets: { second: null } }])
+  }
+  load() {
+    this.router.navigate([{ outlets: { second: 'products' } }])
+  }
 }

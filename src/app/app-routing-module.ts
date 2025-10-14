@@ -12,6 +12,7 @@ const routes: Routes = [
   },
   {
     path: '',
+    outlet: 'second',
     canMatch:[canMatchGuard],
     loadChildren: () => import('./components/product/product-module').then(m => m.ProductModule)
   },

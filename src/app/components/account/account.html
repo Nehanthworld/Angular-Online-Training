@@ -14,7 +14,9 @@
                 </a>
             </li>
             <li>
-                <a routerLink="myorders" routerLinkActive="active" class="nav-link">
+                <a 
+                [routerLink]="[{outlets:{secondchild: 'myorders'}}]"
+                routerLinkActive="active" class="nav-link">
                     <svg class="bi me-2" width="16" height="16">
                         <use xlink:href="#table"></use>
                     </svg>
@@ -41,5 +43,6 @@
     </div>
     <div class="col-9">
         <router-outlet></router-outlet>
+        <router-outlet name="secondchild"></router-outlet>
     </div>
 </div>
