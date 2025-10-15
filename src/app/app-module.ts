@@ -10,6 +10,7 @@ import { Notfound } from './components/notfound/notfound';
 import { Home } from './components/home/home';
 import { Lifecycledemo } from './components/lifecycledemo/lifecycledemo';
 import { Childdemo } from './components/lifecycledemo/childdemo/childdemo';
+import { Specifications } from './components/lifecycledemo/specifications/specifications';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { Childdemo } from './components/lifecycledemo/childdemo/childdemo';
     Home,
     Lifecycledemo,
     Childdemo,
+    Specifications,
   ],
   imports: [
     BrowserModule,

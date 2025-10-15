@@ -1,3 +1,12 @@
+<!-- <ng-content select="[header]"></ng-content>
+<ng-content></ng-content>
 <h1>Child Component</h1>
 <h2>Product Id: {{product.id}}</h2>
 <h2>Product Name: {{product.productName}}</h2>
+<ng-content select="[footer]"></ng-content> -->
+
+<div #samplediv>
+    <h1>this is ng view chiild demo: {{childCounter}}</h1>
+</div>
+
+<input type="button" value="Click from Child" (click)="updateChildCounter()">
