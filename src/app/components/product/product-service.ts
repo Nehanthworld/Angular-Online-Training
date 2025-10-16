@@ -1,16 +1,15 @@
 import { inject, Injectable, signal } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
+import { APIService } from '../../services/APIService';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ProductService {
   normalprice = 100;
   signalprice = signal(100);
 
   normalquantity = 100;
   signalquantity = signal(100);
-
+  private apiService = inject(APIService);
   private cookieService = inject(CookieService);
   products = [
     { id: 1, imagePath: 'images/product/apple.jpeg', description: 'This is sample description about the product', name: 'Laptop', price: 85000.58239754, MFGDate: new Date(), userRating: 5 },
@@ -26,7 +25,8 @@ export class ProductService {
   ];
   getProducts() {
     //DB logic
-    return this.products;
+    
+    return this.apiService.get();
   }
   sendOrderConfirmation() {
     //Email logic

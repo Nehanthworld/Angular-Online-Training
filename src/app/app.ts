@@ -1,4 +1,4 @@
-import { Component, HostListener, inject, signal } from '@angular/core';
+import { afterEveryRender, afterNextRender, Component, HostListener, inject, signal } from '@angular/core';
 import { AuthenticationService } from './services/authentication.service';
 import { Router } from '@angular/router';
 
@@ -11,6 +11,17 @@ import { Router } from '@angular/router';
 export class App {
   authenticationService = inject(AuthenticationService);
   router = inject(Router)
+
+  constructor() {
+    afterNextRender(() => {
+      console.log('after application render');
+    })
+    afterEveryRender(() => {
+      console.log('after application updated');
+    })
+  }
+
+
   login() {
     this.authenticationService.login('admin');
   }

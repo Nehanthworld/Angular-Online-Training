@@ -1,4 +1,4 @@
-import { Component, computed, effect } from '@angular/core';
+import { afterEveryRender, afterNextRender, Component, computed, effect, OnInit } from '@angular/core';
 import { IGridColumn } from '../shared/common-grid/grid.model';
 import { ProductModel } from './product.model';
 import { productGridColums } from './product.model';
@@ -13,13 +13,14 @@ import { ICanComponentDeactivate } from '../../route-guards/can-deactivate.guard
   templateUrl: './product.html',
   styleUrl: './product.css'
 })
-export class Product implements ICanComponentDeactivate {
+export class Product implements ICanComponentDeactivate, OnInit {
   oldname: string = 'venkat';
   firstName: string = 'venkat';
   price: number = 10;
   price2?: number = 100;
   price3: string = '';
   totalPrice!: number;
+  realTimeData: any;
   // totalPrice = computed(() =>
   //   this.productService.signalprice() * this.productService.signalquantity());
 
@@ -28,7 +29,12 @@ export class Product implements ICanComponentDeactivate {
     private _router: Router,
     private _currentRoute: ActivatedRoute
   ) {
-
+    afterNextRender(() => {
+      console.log('after application render :: Product');
+    })
+    afterEveryRender(() => {
+      console.log('after application updated :: Product');
+    })
     console.log(this.price)
     // this.price = 10;
     // this.price = undefined;
@@ -59,6 +65,17 @@ export class Product implements ICanComponentDeactivate {
     console.log('Product Name from Route:', productName);
     let fragment = this._currentRoute.snapshot.fragment;
     console.log('Fragment from Route:', fragment);
+  }
+  ngOnInit(): void {
+    this.product = this.productService.getProducts().subscribe({
+      next: (result: any) => {
+        this.realTimeData = result;
+      },
+      error: (error: any) => {
+        console.error(error);
+      }
+    })
+
   }
   canDeactivate(): boolean {
     return this.firstName !== this.oldname;
@@ -92,12 +109,12 @@ export class Product implements ICanComponentDeactivate {
       //Delete logic
       this._router.navigate(['products', actionData.rowData.id, actionData.rowData.name],
         {
-          queryParams:{ name:'123'},
+          queryParams: { name: '123' },
           queryParamsHandling: 'replace',
           fragment: 'testFragment2'
         }
       );//, 
-        //{ queryParams: { name:actionData.rowData.name, userrating:actionData.rowData.userRating } });
+      //{ queryParams: { name:actionData.rowData.name, userrating:actionData.rowData.userRating } });
     }
   }
 }

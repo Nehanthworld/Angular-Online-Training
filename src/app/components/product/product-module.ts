@@ -9,6 +9,9 @@ import { Proddetailshome } from "../proddetailshome/proddetailshome";
 import { Producthome } from "../producthome/producthome";
 import { Catalog } from "./catalog/catalog";
 import { ProductRoutingModule } from "./product-routing-module";
+import { APIService } from "../../services/APIService";
+import { HttpHandler } from "@angular/common/http";
+import { ProductService } from "./product-service";
 
 @NgModule({
     imports: [
@@ -25,7 +28,8 @@ import { ProductRoutingModule } from "./product-routing-module";
         Catalog
     ],
     providers: [
-
+    APIService,
+    ProductService
     ],
     exports: [
         Product

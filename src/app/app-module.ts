@@ -11,6 +11,8 @@ import { Home } from './components/home/home';
 import { Lifecycledemo } from './components/lifecycledemo/lifecycledemo';
 import { Childdemo } from './components/lifecycledemo/childdemo/childdemo';
 import { Specifications } from './components/lifecycledemo/specifications/specifications';
+import { HttpClient, HttpClientModule, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { APIService } from './services/APIService';
 
 
 @NgModule({
@@ -28,10 +30,12 @@ import { Specifications } from './components/lifecycledemo/specifications/specif
     BrowserModule,
     AppRoutingModule,
     CommonModule,
+    //HttpClientModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
-    CookieService
+    provideHttpClient(withInterceptorsFromDi()),
+    CookieService,
   ],
   bootstrap: [App]
 })
