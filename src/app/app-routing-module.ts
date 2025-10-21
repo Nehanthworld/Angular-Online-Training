@@ -11,7 +11,7 @@ const routes: Routes = [
     loadChildren: () => import('./components/account/account-module').then(m => m.AccountModule)
   },
   {
-    path: '',
+    path: 'product',
     //outlet: 'second',
     canMatch:[canMatchGuard],
     loadChildren: () => import('./components/product/product-module').then(m => m.ProductModule)

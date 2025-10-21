@@ -1,0 +1,14 @@
+<p>product-add works!</p>
+<input type="button" value="Add Subscription" (click)="subscribeToValueChanges()" />
+<!-- <form (ngSubmit)="saveProduct()">
+    <input type="text" [formControl]="productName" placeholder="Enter Product Name"/>
+    <input type="submit" value="Save">
+</form> -->
+
+<form (ngSubmit)="saveProduct()" [formGroup]="productForm">
+    <label for="productName">Product Name:</label>
+    <input id="productName" type="text" formControlName="id" placeholder="Enter Product Id" />
+    <input id="productName" type="text" formControlName="productName" placeholder="Enter Product Name" />
+    <input id="productName" type="text" formControlName="price" placeholder="Enter Product price" />
+    <input type="submit" value="Save">
+</form>

@@ -6,7 +6,7 @@
             <li class="nav-item active">
                 <a class="nav-link" 
                 
-                [routerLink]="'products'"
+                [routerLink]="'product'"
                 routerLinkActive="active">Products</a>
                 <!-- <a class="nav-link" routerLink="catalog" routerLinkActive="active"
                     [queryParams]="{id:1, name: 'Dell Laptop'}" fragment="testFragment">Products</a> -->
@@ -35,6 +35,6 @@
 <input type="button" value="Clear Outlet" (click)="clear()">
 <input type="button" value="Load Outlet" (click)="load()">
 <router-outlet></router-outlet>
-<router-outlet name="second"></router-outlet>
+<!-- <router-outlet name="second"></router-outlet> -->
 
-<app-lifecycledemo></app-lifecycledemo>
+<!-- <app-lifecycledemo></app-lifecycledemo> -->

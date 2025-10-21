@@ -1,15 +1,16 @@
-{{realTimeData | json}}
+<!-- {{realTimeData | json}} -->
 
 <!-- CurrentVal:{{price}}
 
 <input type="button" (click)="updatePrice()" value="Update"/>
 <input type="button" (click)="registerEffect()" value="Register effect"/> -->
-<input type="input" [(ngModel)]="firstName" />
+<!-- <input type="input" [(ngModel)]="firstName" /> -->
  <!-- <app-common-grid 
 [data]="productGridData" 
 [columns]="productGridColums"
 (actionOutput)="handleAction($event)">
 </app-common-grid> -->
+<a [routerLink]="'add'">Add Product</a>
 <app-cards
 [data]="productGridData" 
 [columns]="productGridColums"

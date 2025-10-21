@@ -5,13 +5,17 @@ import { Product } from './product';
 import { ProductDetails } from './product-details/product-details';
 import { canActivateGuard } from '../../route-guards/can-activate.guard';
 import { Catalog } from './catalog/catalog';
+import { ProductAdd } from './addorupdate/product-add/product-add';
 
 const routes: Routes = [
     {
-        path: 'products', component: Product,
+        path: '', component: Product,
         canDeactivate: [canDeactivateGuard],
     },
-    { path: 'products/:id/:name', component: ProductDetails },
+    {
+        path: 'add', component: ProductAdd
+    },
+    { path: ':id/:name', component: ProductDetails },
     {
         path: 'catalog',
         component: Catalog,

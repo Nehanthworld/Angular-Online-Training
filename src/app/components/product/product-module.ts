@@ -12,6 +12,8 @@ import { ProductRoutingModule } from "./product-routing-module";
 import { APIService } from "../../services/APIService";
 import { HttpHandler } from "@angular/common/http";
 import { ProductService } from "./product-service";
+import { ProductAdd } from './addorupdate/product-add/product-add';
+import { ProductUpdate } from './addorupdate/product-update/product-update';
 
 @NgModule({
     imports: [
@@ -25,7 +27,9 @@ import { ProductService } from "./product-service";
         Producthome,
         Proddetailshome,
         Filters,
-        Catalog
+        Catalog,
+        ProductAdd,
+        ProductUpdate
     ],
     providers: [
     APIService,
