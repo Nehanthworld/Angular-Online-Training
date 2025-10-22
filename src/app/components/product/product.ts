@@ -100,6 +100,7 @@ export class Product implements ICanComponentDeactivate, OnInit {
     if (actionData.actionName === 'edit') {
       //Edit logic
       console.log('Edit action triggered for:', actionData.rowData);
+      this._router.navigate(['product/update', actionData.rowData.id]);
     }
     else if (actionData.actionName === 'delete') {
       //Delete logic

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { BehaviorSubject, Subject } from 'rxjs';
 
 @Component({
@@ -10,15 +10,26 @@ import { BehaviorSubject, Subject } from 'rxjs';
 })
 export class ProductAdd implements OnInit {
   productForm: any;
-  constructor() {
-    this.productForm = new FormGroup({
-      productName: new FormControl(''),
-      id: new FormControl(0),
-      releaseDate: new FormControl(''),
-      price: new FormControl(0),
-      description: new FormControl(''),
-      starRating: new FormControl(0),
-      imageUrl: new FormControl('')
+
+  // productForm = new FormGroup({
+  //   productName: new FormControl('', [Validators.required, Validators.minLength(3)]),
+  // });
+  // sampleForm = new FormBuilder().group({
+  //   productName: ['', [Validators.required, Validators.minLength(3)]],
+  // });
+
+  constructor(private formBuilder: FormBuilder) {
+
+    this.productForm = formBuilder.group({
+      productName: ['', [Validators.required, Validators.minLength(3)]],
+      id: 0,
+      releaseDate: new Date(),
+      price: [100, [Validators.min(100), Validators.max(10000)]],
+      description: '',
+      starRating: '',
+      imageUrl: '',
+      email: ['', Validators.email],
+      username: ['', [Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$')]]
     });
   }
   //productName = new FormControl('This is initial val');
@@ -38,7 +49,7 @@ export class ProductAdd implements OnInit {
     });
     //Partial update
     this.productForm.patchValue({
-      productName: 'New Product Name', id : 8
+      productName: 'New Product Name', id: 8
     });
     this.productForm.controls.productName.setValue("Updated Product Name");
     console.log("This is from inint");
@@ -50,6 +61,10 @@ export class ProductAdd implements OnInit {
 
   }
   saveProduct() {
+    if (this.productForm.invalid) {
+      console.log("Form is invalid");
+      return;
+    }
     //console.log("Product Name: ", this.productName.value);
     console.log("Product group value: ", this.productForm.value);
     console.log("Product name value: ", this.productForm.value.productName);

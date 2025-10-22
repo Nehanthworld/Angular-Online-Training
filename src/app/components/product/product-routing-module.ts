@@ -6,6 +6,7 @@ import { ProductDetails } from './product-details/product-details';
 import { canActivateGuard } from '../../route-guards/can-activate.guard';
 import { Catalog } from './catalog/catalog';
 import { ProductAdd } from './addorupdate/product-add/product-add';
+import { ProductUpdate } from './addorupdate/product-update/product-update';
 
 const routes: Routes = [
     {
@@ -14,6 +15,9 @@ const routes: Routes = [
     },
     {
         path: 'add', component: ProductAdd
+    },
+    {
+        path: 'update/:id', component: ProductUpdate
     },
     { path: ':id/:name', component: ProductDetails },
     {

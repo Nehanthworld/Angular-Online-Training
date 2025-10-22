@@ -8,7 +8,67 @@
 <form (ngSubmit)="saveProduct()" [formGroup]="productForm">
     <label for="productName">Product Name:</label>
     <input id="productName" type="text" formControlName="id" placeholder="Enter Product Id" />
-    <input id="productName" type="text" formControlName="productName" placeholder="Enter Product Name" />
-    <input id="productName" type="text" formControlName="price" placeholder="Enter Product price" />
-    <input type="submit" value="Save">
+    <br />
+    <input id="id" type="text" formControlName="productName" placeholder="Enter Product Name" />
+    @if(productForm.controls.productName.invalid && (productForm.controls.productName.touched ||
+    productForm.controls.productName.dirty))
+    {
+        @if(productForm.controls.productName.hasError('required'))
+        {
+            <span style="color:red">Product Name Required</span>
+        }
+        @if(productForm.controls.productName.hasError('minlength'))
+        {
+            <span style="color:red">Product Name should be 3 chars at leaset</span>
+        }
+    }
+    <br />
+    <input id="id" type="text" formControlName="email" placeholder="Enter email" />
+    @if(productForm.controls.email.invalid && (productForm.controls.email.touched ||
+    productForm.controls.email.dirty))
+    {
+        @if(productForm.controls.email.hasError('email'))
+        {
+            <span style="color:red">Enter valid email</span>
+        }
+        @if(productForm.controls.email.hasError('minlength'))
+        {
+            <span style="color:red">Product Name should be 3 chars at leaset</span>
+        }
+    }
+    <br />
+    <input id="price" type="number" formControlName="price" placeholder="Enter Product price" />
+    @if(productForm.controls.price.invalid && (productForm.controls.price.touched ||
+    productForm.controls.price.dirty))
+    {
+        @if(productForm.controls.price.hasError('min'))
+        {
+            <span style="color:red">Please enter price greater than 100</span>
+        }
+        @if(productForm.controls.price.hasError('max'))
+        {
+            <span style="color:red">Please enter price less than 10000</span>
+        }
+    }
+    <br />
+    <input id="username" type="text" formControlName="username" placeholder="Enter username" />
+    @if(productForm.controls.username.invalid && (productForm.controls.username.touched ||
+    productForm.controls.username.dirty))
+    {
+        @if(productForm.controls.username.hasError('pattern'))
+        {
+            <span style="color:red">Pattern is not matching</span>
+        }
+    }
+    <br />
+    Product Name invalid:{{productForm.controls.productName.invalid}}
+    <br />
+    Product Name touched:{{productForm.controls.productName.touched}}
+    <br />
+    Product Name untouched:{{productForm.controls.productName.untouched}}
+    <br />
+    Product Name dirty:{{productForm.controls.productName.dirty}}
+    <br />
+    Product Name pristine:{{productForm.controls.productName.pristine}}
+    <input type="submit" value="Save" [disabled]="this.productForm.invalid">
 </form>
