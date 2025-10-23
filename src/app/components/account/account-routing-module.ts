@@ -7,8 +7,10 @@ import { OrderDetails } from '../orders/order-details/order-details';
 import { Account } from './account';
 import { AccountHome } from './account-home/account-home';
 import { dataResolver } from '../../route-guards/route-resolver';
+import { Signup } from './signup/signup';
 
 const routes: Routes = [
+  { path: 'signup', component: Signup },
   {
     path: '', component: Account,
     canActivate: [canActivateGuard],

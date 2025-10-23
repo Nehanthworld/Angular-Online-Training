@@ -23,7 +23,7 @@
             <button class="btn btn-primary" type="button">Search</button>
         </form>
         <ul class="navbar-nav flex-row flex-wrap ms-md-auto">
-            <li><a routerLink="signup" class="header-links"><span class="fa fa-user"></span> Sign Up</a></li>
+            <li><a routerLink="account/signup" class="header-links"><span class="fa fa-user"></span> Sign Up</a></li>
             <li>
                 <input type="button" class="btn btn-link header-links" value="Login" (click)="login()" />
                 <!-- <a routerLink="login" class="header-links"><span class="fa fa-lock"></span> Login</a> -->
@@ -32,8 +32,8 @@
         </ul>
     </div>
 </nav>
-<input type="button" value="Clear Outlet" (click)="clear()">
-<input type="button" value="Load Outlet" (click)="load()">
+<!-- <input type="button" value="Clear Outlet" (click)="clear()">
+<input type="button" value="Load Outlet" (click)="load()"> -->
 <router-outlet></router-outlet>
 <!-- <router-outlet name="second"></router-outlet> -->
 
