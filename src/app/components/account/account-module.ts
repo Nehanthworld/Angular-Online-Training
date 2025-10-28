@@ -10,13 +10,15 @@ import { AccountRoutingModule } from './account-routing-module';
 import { Signup } from './signup/signup';
 import { FormsModule } from "@angular/forms";
 import { SharedModule } from '../shared/shared-module';
+import { Login } from './login/login';
 
 @NgModule({
     declarations: [
         Account,
         AccountHome,
         Address,
-        Signup
+        Signup,
+        Login
     ],
     imports: [
     RouterModule,

@@ -69,6 +69,7 @@ export class Product implements ICanComponentDeactivate, OnInit {
   ngOnInit(): void {
     this.product = this.productService.getProducts().subscribe({
       next: (result: any) => {
+        console.log('Products from API:', result);
         this.realTimeData = result;
       },
       error: (error: any) => {

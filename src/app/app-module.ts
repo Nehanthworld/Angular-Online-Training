@@ -11,8 +11,10 @@ import { Home } from './components/home/home';
 import { Lifecycledemo } from './components/lifecycledemo/lifecycledemo';
 import { Childdemo } from './components/lifecycledemo/childdemo/childdemo';
 import { Specifications } from './components/lifecycledemo/specifications/specifications';
-import { HttpClient, HttpClientModule, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { HttpClient, HttpClientModule, provideHttpClient, withInterceptors } from '@angular/common/http';
 import { APIService } from './services/APIService';
+import { loggingInterceptor } from './interceptors/logging.interceptor';
+import { cachingInterceptor } from './interceptors/caching.interceptor';
 
 
 @NgModule({
@@ -34,7 +36,7 @@ import { APIService } from './services/APIService';
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
-    provideHttpClient(withInterceptorsFromDi()),
+    provideHttpClient(withInterceptors([loggingInterceptor, cachingInterceptor])),
     CookieService,
   ],
   bootstrap: [App]

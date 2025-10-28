@@ -12,4 +12,10 @@ export class AccountService {
         //APIService.get('url/username')
         return of(this.userNames.includes(username))
     }
+    getToken(){
+        return localStorage.getItem('token')??'45353kljlsdf';
+    }
+    setToken(token: string){
+        localStorage.setItem('token', token);
+    }
 }

@@ -26,8 +26,8 @@ export class ProductService {
   ];
   getProducts() {
     //DB logic
-    return of(this.products);
-    //return this.apiService.get();
+    //return of(this.products);
+    return this.apiService.get();
   }
   getProductById(id: number) {
     let prod = this.products.filter(product => product.id === id);

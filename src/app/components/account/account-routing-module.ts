@@ -8,9 +8,11 @@ import { Account } from './account';
 import { AccountHome } from './account-home/account-home';
 import { dataResolver } from '../../route-guards/route-resolver';
 import { Signup } from './signup/signup';
+import { Login } from './login/login';
 
 const routes: Routes = [
   { path: 'signup', component: Signup },
+  { path: 'login', component: Login },
   {
     path: '', component: Account,
     canActivate: [canActivateGuard],
